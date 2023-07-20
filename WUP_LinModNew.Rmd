@@ -31,8 +31,47 @@ data <- read.csv(file="https://onlinestatbook.com/case_studies_rvls/physical_str
 
 ```
 
+# Introduction
+We predict a simulated strength score based on arm and grip strength. We will find three models and compare them. The response variable is numerical, and the explanatory variable is numerical, so we use the Num~Num helper file.
+Among those three models, which one of these are best? using anova
+In this analysis, we examine three regression models: Model1 (SIMSARM), Model2 (SIMSGRIP), and Model3 (SIMS~ARM+GRIP). We calculate the 95% prediction intervals for SIMS with GRIP set to 94 and ARM set to 88 for each model and perform ANOVA to compare Model1 with Model3 and Model2 with Model3.
+
 ## Model 1 SIM~ARMS
 
+## Results
+### Graphical Results
+As the arm strength rises the simulations rises aswell.
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+plot(SIMS~ARM,data=data)
+abline(model.1, col='red')
+```
+
+As the arm strength rises the simulations rises as well.
+### Numerical Results
+
+```{r}
+cor(SIMS~ARM,data=data)
+```
+
+The correlation between SIMS and the ARM strength we can see that we got 0.6860073.
+The correlation is 0.69 which shows that arm strength is related to SIMS score.
+### Inferential Results
+
+```{r}
+model.1 <- lm(SIMS~ARM,data=data)
+summary.lm(model.1)
+```
+
+The coefficient and the intercept is significant. Both the intercept and the coefficient of ARM strength are significantly different from zero.
+
+```{r}
+newdata = data.frame(ARM=88,GRIP=94)
+predict(model.1, newdata, interval="predict")
+```
+
+The prediction interval is from -1.7 to 3.1 for SIM score.
 ### scatterplot
 
 ### Numerical results
