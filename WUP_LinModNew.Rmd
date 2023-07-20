@@ -67,6 +67,7 @@ summary.lm(model.1)
 The coefficient and the intercept is significant. Both the intercept and the coefficient of ARM strength are significantly different from zero.
 
 ### Prediction Interval
+test
 
 ```{r}
 newdata = data.frame(ARM=88,GRIP=94)
