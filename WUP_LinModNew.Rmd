@@ -68,30 +68,55 @@ The coefficient and the intercept is significant. Both the intercept and the coe
 
 <<<<<<< HEAD
 ### Prediction Interval
-test
+
 
 =======
 # Prediction Interval
->>>>>>> af98160a575abb0939223b982f3a739a122ee37a
 ```{r}
 newdata = data.frame(ARM=88,GRIP=94)
 predict(model.1, newdata, interval="predict")
 ```
 
-The prediction interval is from -1.7 to 3.1 for SIM score.
+The prediction interval is from -1.7 to 3.1 for SIMS score.
 
 ## Model 2 SIM~GRIP
 
-### Now add in scatterplot
+## Results
+### Graphical Results
 
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+plot(SIMS~ARM,data=data)
+abline(model.1, col='red')
+```
+
+The graph shows that show the grip strength goes up the simulation strength goes up as well.
+As the grip strength increases the SIMS increases. The spread of the points around the regression line in the grip plot are more spread out, than the arm strength plot.
 
 ### Numerical results 
 
+```{r}
+cor(SIMS~GRIP,data=data)
+```
+
+The correlation between SIMS and the ARM strength we can see that we got 0.6398458.
+The correlation is 0.64 which shows that arm strength is related to SIMS score.
 
 ### Inferential  (Build model.2)
-  
 
-#### predict model.2 at target point
+```{r}
+model.2 <- lm(SIMS~GRIP,data=data)
+summary.lm(model.2)
+```
+
+Both the intercept and the coefficient of GRIP strength are significantly different from zero.
+
+#### Prediction Interval
+
+```{r}
+newdata = data.frame(ARM=88,GRIP=94)
+predict(model.2, newdata, interval="predict")
+```
 
 #### now add the model fit to our plot for model.2
   
@@ -99,14 +124,36 @@ The prediction interval is from -1.7 to 3.1 for SIM score.
 
 ## Model 3 SIM~ARM+GRIP
 
+## Results
+### Graphical Results
+
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+plot(SIMS~ARM+GRIP,data=data)
+abline(model.3, col='red')
+```
+
 ### Numerical results (cor)
 
-`
+```{r}
+cor(SIMS~ARM+GRIP,data=data)
+```
   
 ### Inferential  (Build 2-dimentional model.3)
 
+```{r}
+model.3 <- lm(SIMS~ARM+GRIP,data=data)
+summary.lm(model.3)
+```
+
 #### predict model.3 at target point
   
+```{r}
+newdata = data.frame(ARM=88,GRIP=94)
+predict(model.3, newdata, interval="predict")
+```
+
+The prediction interval is from -2.1 to 2.4 for SIMS score.
 
 ## Comparing nested models ANOVA Test
 
