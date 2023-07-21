@@ -179,4 +179,4 @@ anova(model.2,model.3)
 Model three has lower rss score than model two therefore making it a smaller model
 
 # Disscussion and Conclusion
-Model three is the best one out of the three since it carries a lower rss than the others.
+Model three is the best one out of the three since it carries a lower rss than the others. model one is better than model two. model three is better than model two.
