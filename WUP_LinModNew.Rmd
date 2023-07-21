@@ -133,6 +133,9 @@ plot(SIMS~ARM+GRIP,data=data)
 abline(model.3, col='red')
 ```
 
+The graph shows that show the GRIP/ARM strength and goes up the simulation strength goes up as well.
+As the GRIP/ARM strength increases the SIMS increases. The spread of the points around the regression line in the grip plot are more spread out, than the GRIP/ARM strength plot.
+
 ### Numerical results (cor)
 
 ```{r}
