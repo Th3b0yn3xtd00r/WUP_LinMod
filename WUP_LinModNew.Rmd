@@ -48,6 +48,7 @@ abline(model.1, col='red')
 ```
 
 As the arm strength rises the simulations rises as well.
+
 ### Numerical Results
 
 ```{r}
@@ -117,6 +118,8 @@ Both the intercept and the coefficient of GRIP strength are significantly differ
 newdata = data.frame(ARM=88,GRIP=94)
 predict(model.2, newdata, interval="predict")
 ```
+
+The prediction interval is from -3.1 to 2.0 for SIMS score.
 
 #### now add the model fit to our plot for model.2
   
